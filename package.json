@@ -1,0 +1,11 @@
+{
+  "name": "elderly-care-network",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run start --prefix frontend\""
+  },
+  "dependencies": {
+    "concurrently": "^9.2.0"
+  }
+}
