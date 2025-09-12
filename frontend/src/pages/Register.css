@@ -1,33 +1,131 @@
-.register-container {
-  max-width: 400px;
-  margin: 80px auto;
-  padding: 30px;
-  background-color: #f8faff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(112, 112, 112, 0.2);
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@500;600&display=swap');
+
+body, input, button, p {
+  font-family: 'Montserrat', sans-serif;
+  color: #edeef3;
 }
 
-.register-container h2 {
-  color: #004aad;
-  margin-bottom: 20px;
+h1 {
+  font-family: 'Montserrat', sans-serif;
 }
 
-.register-container input {
+body {
+  margin: 0;
+  background: #a5b5c4;
+}
+
+/* Card container */
+.register-card {
+  width: 950px;
+  height: 450px;
+  max-width: 100%;
+  margin: 90px auto;
+  display: flex;
+  border-radius: 30px;  /* Rounded outer corners */
+  overflow: hidden;     /* Ensures children don't overflow */
+  background: #15165a;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+/* Left side – video */
+.register-video-container {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Clip video inside rounded corners */
+}
+
+.register-video-container video {
   width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  height: 100%;
+  object-fit: cover;
 }
 
-.register-container button {
-  width: 100%;
-  padding: 12px;
-  background-color: #004aad;
-  color: white;
+/* Right side – form */
+.register-form-container {
+  flex: 1;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #15165a;
+}
+
+.register-form-container h1 {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.register-form-container p {
+  margin-bottom: 2rem;
+  color: #6b7280;
+}
+
+.register-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.register-form-container input {
+  padding: 0.8rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+.register-form-container button {
+  padding: 0.8rem;
   border: none;
-  border-radius: 5px;
-  font-weight: bold;
+  border-radius: 8px;
+  background: #6366f1;
+  color: #fff;
+  font-weight: 600;
   cursor: pointer;
+  transition: background 0.2s;
+}
+
+.register-form-container button:hover {
+  background: #4f46e5;
+}
+
+/* Flip card (optional for future animation) */
+.flip-card-container {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .register-card {
+    flex-direction: column;
+    width: 95%;
+  }
+  .register-video-container {
+    height: 250px;
+  }
 }

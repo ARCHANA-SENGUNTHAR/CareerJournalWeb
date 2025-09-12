@@ -38,6 +38,9 @@ const Login = () => {
           />
           <button type="submit">Login Now</button>
         </form>
+        <p style={{ cursor: "pointer", marginTop: "1rem" }}>
+          Don't have an account? Register
+        </p>
       </div>
 
       {/* Right side – mp4 animation */}
