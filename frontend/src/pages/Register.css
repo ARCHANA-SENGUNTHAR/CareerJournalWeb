@@ -73,6 +73,7 @@ body {
   padding: 0.8rem 1rem;
   border: 1px solid #d1d5db;
   border-radius: 8px;
+  color:black;
 }
 
 .register-form-container button {

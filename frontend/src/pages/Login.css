@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@500;600&display=swap');
 
-body, input, button, p {
+body, button, p {
   font-family: 'Montserrat', sans-serif;
   color:#edeef3
 }
@@ -54,9 +54,11 @@ body {
 
 .login-left input {
   padding: 0.8rem 1rem;
-  border: 1px solid #d1d5db;
+  border: 1px solid #0c1017;
   border-radius: 8px;
+  color:black;
 }
+
 
 .login-left button {
   padding: 0.8rem;

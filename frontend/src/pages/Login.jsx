@@ -3,7 +3,7 @@ import axios from "axios";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
-
+import { Link } from "react-router-dom";
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
   const { setUser } = useContext(UserContext);
@@ -28,18 +28,17 @@ const Login = () => {
             type="email"
             placeholder="Email"
             required
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-          />
+            onChange={(e) => setForm({ ...form, email: e.target.value })} />
           <input
             type="password"
             placeholder="Password"
             required
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
-          />
+            onChange={(e) => setForm({ ...form, password: e.target.value })} />
           <button type="submit">Login Now</button>
         </form>
         <p style={{ cursor: "pointer", marginTop: "1rem" }}>
-          Don't have an account? Register
+          Don't have an account? {" "}
+          <Link to="/register" style={{color:"#edeef3", textDecoration:"none"}}>Register</Link>
         </p>
       </div>
 
@@ -62,6 +61,6 @@ const Login = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Login;

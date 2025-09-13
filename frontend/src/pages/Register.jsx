@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState} from "react";
+import{ Link } from "react-router-dom"
 import "./Register.css";
 
-const Register = ({ onToggleForm }) => {
+
+const Register = ({onToggleForm}) => {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
 
   const handleSubmit = (e) => {
@@ -51,7 +53,8 @@ const Register = ({ onToggleForm }) => {
           <button type="submit">Register Now</button>
         </form>
         <p style={{ cursor: "pointer", marginTop: "1rem" }} onClick={onToggleForm}>
-          Already have an account? Login
+          Already have an account? {" "}
+          <Link to = "/login" style={{color:"#edeef3", textDecoration:"none"}}>Login</Link>
         </p>
       </div>
     </div>
