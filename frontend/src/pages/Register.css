@@ -23,7 +23,7 @@ body {
   display: flex;
   border-radius: 30px;  /* Rounded outer corners */
   overflow: hidden;     /* Ensures children don't overflow */
-  background: #15165a;
+  background: #0d0d36;
   box-shadow: 0 10px 40px rgba(0,0,0,0.1);
 }
 
@@ -50,7 +50,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #15165a;
+  background: #0d0d36;
 }
 
 .register-form-container h1 {

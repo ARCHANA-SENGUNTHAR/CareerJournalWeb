@@ -18,16 +18,21 @@ export default function BackgroundAnimation() {
         position: "fixed",
         top: 0,
         left: 0,
-        width: "100%vw",
-        height: "100%vh",
-        zIndex: -1,            // keep it behind everything
-        pointerEvents: "none", // clicks pass through
+        width: "100vw",
+        height: "100vh",
+        zIndex: -1,          
+        pointerEvents: "none", 
       }}
     >
       <Lottie
         animationData={data}
         loop
-        style={{ width: "100%", height: "100%" }}
+         style={{
+          width: "100%",     
+          height: "100%",    
+          objectFit: "cover" ,
+          transform: "scale(1.3)",
+        }}
       />
     </div>
   );
