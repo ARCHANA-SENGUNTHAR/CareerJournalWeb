@@ -5,17 +5,24 @@ import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import Backgroundanimation from "./components/Backgroundanimation";
+
 
 function App() {
   return (
     <>
       <Navbar />
+      <Backgroundanimation /> 
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/" element={<Home />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   );
