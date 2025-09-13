@@ -1,0 +1,91 @@
+/* Home.css */
+.home {
+  text-align: center;
+  padding: 40px 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f9f9fb, #e0f7fa); /* subtle gradient background */
+  min-height: 100vh;
+}
+
+.home-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc); /* gradient text */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.home-subtitle {
+  font-size: 1.2rem;
+  color: #4a5568;
+  margin-bottom: 40px;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+/* Features grid */
+.features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Feature cards with gradient shadow */
+.feature-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 400px;
+  box-shadow: 0 4px 15px rgba(58, 123, 213, 0.2); /* gradient-like soft shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: left;
+  opacity: 0; /* start hidden */
+  transform: translateY(20px); /* start slightly down */
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.feature-card:nth-child(1) {
+  animation-delay: 1.4s;
+}
+.feature-card:nth-child(2) {
+  animation-delay: 1.6s;
+}
+.feature-card:nth-child(3) {
+  animation-delay: 1.8s;
+}
+.feature-card:nth-child(4) {
+  animation-delay: 2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(58, 123, 213, 0.4); /* deeper gradient shadow on hover */
+}
+
+.feature-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: #2b6cb0;
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  color: #4a5568;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

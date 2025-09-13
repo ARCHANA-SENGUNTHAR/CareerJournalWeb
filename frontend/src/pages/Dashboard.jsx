@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
-import axios from "axios";
 import { UserContext } from "../context/UserContext";
+import axios from "axios";
+import "./Dashboard.css";
 
 const Dashboard = () => {
   const { user } = useContext(UserContext);
@@ -9,6 +10,7 @@ const Dashboard = () => {
 
   const handlePost = async (e) => {
     e.preventDefault();
+
     const data = new FormData();
     data.append("title", form.title);
     data.append("content", form.content);
@@ -25,7 +27,7 @@ const Dashboard = () => {
     }
   };
 
-return (
+  return (
     <div className="journal-form">
       <h2>Create Journal</h2>
       <form onSubmit={handlePost} encType="multipart/form-data">
@@ -38,8 +40,18 @@ return (
           placeholder="Write your update..."
           value={form.content}
           onChange={(e) => setForm({ ...form, content: e.target.value })}
-        ></textarea>
+        />
         <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+
+        {/* AI Checker block inside form */}
+        <div className="ai-check">
+          <h4>AI Content Checker</h4>
+          <div className="ai-embed">
+            <gradio-app src="https://archanagurusamy14-ai-text-detection.hf.space"></gradio-app>
+          </div>
+          <p>⚠️ Please check your content using the embedded AI detector before posting.</p>
+        </div>
+
         <button type="submit">Post</button>
       </form>
     </div>
