@@ -34,7 +34,16 @@
   font-size: 1rem;
   transition: border 0.3s ease;
   outline: none;
+  color: #000; /* ✅ this sets typed text color */
 }
+
+/* Force placeholder text to black */
+.journal-form input::placeholder,
+.journal-form textarea::placeholder {
+  color: #000;   /* <-- change placeholder to black */
+  opacity: 1;    /* <-- removes faded look */
+}
+
 
 .journal-form input[type="text"]:focus,
 .journal-form textarea:focus {
@@ -78,15 +87,16 @@
   margin: 0;
   font-size: 1rem;
   font-weight: 600;
-  color: #2b6cb0;
+  color: #000; /* <-- optional change from #2b6cb0 to black */
   text-align: center;
 }
+
 
 /* Updated AI embed block */
 .ai-check .ai-embed {
   width: 100%;
   height: 750px; /* increased height */
-  min-height: 600px; /* ensures it doesn't shrink */
+  min-height: 800px; /* ensures it doesn't shrink */
 }
 
 /* Make gradio-app fill its container */
@@ -97,7 +107,7 @@
 
 .ai-check p {
   font-size: 0.9rem;
-  color: #555;
+  color: #000; /* <-- CHANGE FROM #555 */
   text-align: center;
   margin: 0;
 }

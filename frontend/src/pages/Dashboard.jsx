@@ -9,23 +9,31 @@ const Dashboard = () => {
   const [file, setFile] = useState(null);
 
   const handlePost = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const data = new FormData();
-    data.append("title", form.title);
-    data.append("content", form.content);
-    data.append("userId", user._id);
-    if (file) data.append("file", file);
+  const aiProbability = 45; // 🔥 TODO: hook this with your AI checker result
 
-    try {
-      await axios.post("http://localhost:5000/api/journals/create", data);
-      alert("Journal Posted!");
-      setForm({ title: "", content: "" });
-      setFile(null);
-    } catch (err) {
-      console.error("Error posting journal:", err);
-    }
-  };
+  const data = new FormData();
+
+  data.append("title", form.title);
+  data.append("content", form.content);
+  data.append("userId", user._id);
+  data.append("aiProbability", aiProbability);
+  console.log("User in Dashboard:", user);
+console.log("user._id:", user?._id);
+
+  if (file) data.append("file", file);
+
+  try {
+    await axios.post("http://localhost:5000/api/journals/create", data);
+    alert("Journal Posted!");
+    setForm({ title: "", content: "" });
+    setFile(null);
+  } catch (err) {
+    console.error("Error posting journal:", err);
+    alert(err.response?.data?.error || "Failed to post journal");
+  }
+};
 
   return (
     <div className="journal-form">

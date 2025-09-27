@@ -10,12 +10,22 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
+  try {
     const res = await axios.post("http://localhost:5000/api/auth/login", form);
-    alert(`Welcome ${res.data.user.name}`);
-    setUser(res.data.user);
-    navigate("/dashboard");
-  };
+    alert(res.data.message); // shows "Login successful"
+    if (res.data.success) {
+      setUser(res.data.user);
+      navigate("/dashboard");
+    }
+  } catch (err) {
+    if (err.response && err.response.data) {
+      alert(err.response.data.message); // shows exact issue: wrong password / account doesn't exist
+    } else {
+      alert("Something went wrong. Try again.");
+    }
+  }
+};
 
   return (
     <div className="login-card">
