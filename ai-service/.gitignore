@@ -1,0 +1,16 @@
+# Ignore Python virtual environment
+venv/
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+
+# Ignore environment variables
+.env
+
+# Ignore model weights or cache files (if any)
+*.pth
+*.pt
+*.bin
+cache/
+logs/

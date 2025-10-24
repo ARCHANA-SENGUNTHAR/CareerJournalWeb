@@ -1,66 +1,75 @@
+// ✅ REPLACE your current Dashboard.jsx with THIS
+
 import { useState, useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import axios from "axios";
+import { EditorContent, useEditor } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
+import Link from "@tiptap/extension-link";
+import Image from "@tiptap/extension-image";
 import "./Dashboard.css";
 
 const Dashboard = () => {
   const { user } = useContext(UserContext);
-  const [form, setForm] = useState({ title: "", content: "" });
+  const [title, setTitle] = useState("");
   const [file, setFile] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const editor = useEditor({
+    extensions: [StarterKit, Link, Image],
+    content: "",
+  });
 
   const handlePost = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
+    if (!editor) return;
 
-  const aiProbability = 45; // 🔥 TODO: hook this with your AI checker result
+    const content = editor.getHTML();
+    const data = new FormData();
+    data.append("title", title);
+    data.append("content", content);
+    data.append("userId", user._id);
+    if (file) data.append("file", file);
 
-  const data = new FormData();
+    try {
+      setLoading(true);
+      const res = await axios.post("http://localhost:5000/api/journals/create", data);
+      alert("✅ Journal posted successfully!");
 
-  data.append("title", form.title);
-  data.append("content", form.content);
-  data.append("userId", user._id);
-  data.append("aiProbability", aiProbability);
-  console.log("User in Dashboard:", user);
-console.log("user._id:", user?._id);
-
-  if (file) data.append("file", file);
-
-  try {
-    await axios.post("http://localhost:5000/api/journals/create", data);
-    alert("Journal Posted!");
-    setForm({ title: "", content: "" });
-    setFile(null);
-  } catch (err) {
-    console.error("Error posting journal:", err);
-    alert(err.response?.data?.error || "Failed to post journal");
-  }
-};
+      setTitle("");
+      editor.commands.setContent("");
+      setFile(null);
+    } catch (err) {
+      if (err.response?.status === 400) {
+        alert(`⚠️ ${err.response.data.error}`);
+      } else {
+        alert("❌ Error posting journal.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="journal-form">
       <h2>Create Journal</h2>
-      <form onSubmit={handlePost} encType="multipart/form-data">
-        <input
-          placeholder="Title"
-          value={form.title}
-          onChange={(e) => setForm({ ...form, title: e.target.value })}
-        />
-        <textarea
-          placeholder="Write your update..."
-          value={form.content}
-          onChange={(e) => setForm({ ...form, content: e.target.value })}
-        />
-        <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+      <form onSubmit={handlePost}>
+        <input placeholder="Journal Title" value={title} onChange={(e) => setTitle(e.target.value)} />
 
-        {/* AI Checker block inside form */}
-        <div className="ai-check">
-          <h4>AI Content Checker</h4>
-          <div className="ai-embed">
-            <gradio-app src="https://archanagurusamy14-ai-text-detection.hf.space"></gradio-app>
-          </div>
-          <p>⚠️ Please check your content using the embedded AI detector before posting.</p>
+        <div className="editor-toolbar">
+          <button type="button" onClick={() => editor.chain().focus().toggleBold().run()}>Bold</button>
+          <button type="button" onClick={() => editor.chain().focus().toggleItalic().run()}>Italic</button>
+          <button type="button" onClick={() => editor.chain().focus().toggleStrike().run()}>Strike</button>
+          <button type="button" onClick={() => editor.chain().focus().toggleBulletList().run()}>• List</button>
+          <button type="button" onClick={() => editor.chain().focus().toggleOrderedList().run()}>1. List</button>
         </div>
 
-        <button type="submit">Post</button>
+        <EditorContent editor={editor} className="tiptap-editor" />
+        <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+
+        <button type="submit" disabled={loading}>
+          {loading ? "Checking AI & Posting..." : "Post Journal"}
+        </button>
       </form>
     </div>
   );

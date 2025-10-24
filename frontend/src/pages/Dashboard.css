@@ -111,3 +111,36 @@
   text-align: center;
   margin: 0;
 }
+
+/* TipTap Toolbar */
+.editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.editor-toolbar button {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #5a8cad;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.editor-toolbar button:hover {
+  background: #e2e8f0;
+}
+
+/* TipTap Editor */
+.tiptap-editor {
+  min-height: 150px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  background: #fff;
+}

@@ -3,6 +3,7 @@ import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
+// Register
 export const register = async (req, res) => {
   const { name, email, password } = req.body;
   try {
@@ -20,11 +21,12 @@ export const register = async (req, res) => {
       user: { _id: user._id, name: user.name, email: user.email }
     });
   } catch (err) {
-    res.status(500).json({ success: false, message: "Server error", error: err.message });
+    // console.error("Registration failed:", err);
+    res.status(500).json({ success: false, message: "Server error" });
   }
 };
 
-
+// Login
 export const login = async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -39,6 +41,7 @@ export const login = async (req, res) => {
     }
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "1d" });
+
     res.json({
       success: true,
       message: "Login successful",
@@ -46,6 +49,7 @@ export const login = async (req, res) => {
       user: { _id: user._id, name: user.name, email: user.email }
     });
   } catch (err) {
-    res.status(500).json({ success: false, message: "Server error", error: err.message });
+    // console.error("Login failed:", err);
+    res.status(500).json({ success: false, message: "Server error" });
   }
 };

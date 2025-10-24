@@ -1,0 +1,81 @@
+.journal-container {
+  max-width: 850px;
+  margin: auto;
+  padding: 25px;
+  font-family: "Poppins", sans-serif;
+}
+
+.journal-card {
+  background: #ffffff;
+  padding: 18px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  border: 1px solid #e4e4e4;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease;
+}
+
+.journal-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.journal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.journal-preview {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.view-more-btn {
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+  color: #fff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.view-more-btn:hover {
+  background: linear-gradient(135deg, #5b7ce2, #243c83);
+  transform: scale(1.05);
+}
+
+.timestamp {
+  font-size: 12px;
+  color: gray;
+  display: block;
+  margin-top: 8px;
+}
+
+.ai-badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.badge-green {
+  background: #d4f8d4;
+  color: #0b6e0b;
+}
+
+.badge-yellow {
+  background: #fff3cd;
+  color: #8a6d3b;
+}
+
+.badge-red {
+  background: #f8d7da;
+  color: #721c24;
+}

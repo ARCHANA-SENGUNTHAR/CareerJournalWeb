@@ -1,0 +1,29 @@
+.profile-card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.ai-badge-container {
+  margin-top: 10px;
+}
+
+.ai-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  background: #e0ffe5;
+  border: 1px solid #00b894;
+  color: #00b894;
+  font-weight: bold;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.ai-score-text {
+  font-size: 12px;
+  margin-top: 5px;
+  color: #555;
+}

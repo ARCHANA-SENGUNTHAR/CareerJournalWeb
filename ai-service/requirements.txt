@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+transformers
+torch
+nltk
+requests

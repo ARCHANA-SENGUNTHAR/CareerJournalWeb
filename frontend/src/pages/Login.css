@@ -1,8 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@500;600&display=swap');
 
-body, button, p {
+body, p {
   font-family: 'Montserrat', sans-serif;
-  color:#edeef3
+  color: #000;  /* default text black */
+}
+
+button {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;  /* buttons specifically white text */
 }
 
 h1 {
