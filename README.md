@@ -47,7 +47,7 @@ Follow these steps carefully to install all dependencies and set up the developm
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/CareerJournalWeb.git
+git clone https://github.com/ARCHANA-SENGUNTHAR/CareerJournalWeb.git
 cd CareerJournalWeb
 ```
 
