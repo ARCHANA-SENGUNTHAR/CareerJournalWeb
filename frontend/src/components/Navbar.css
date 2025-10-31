@@ -3,22 +3,173 @@
   color: white;
   display: flex;
   justify-content: space-between;
-  padding: 3px 20px;
   align-items: center;
+  padding: 8px 25px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo {
-  font-size: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
   font-weight: bold;
+  color: white;
 }
 
-.nav-links a {
+.logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%; /* makes the logo circular */
+  background-color: transparent; /* ensures no background shows */
+}
+
+
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.language-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #212377;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: white;
+}
+
+.language-selector select {
+  background-color: #ffffff;
+  color: #15165a;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.language-selector select:hover {
+  background-color: #15165a;
+  color: #ffffff;
+}
+
+.theme-btn {
+  background: #212377;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+  background-color: #3a3cb5;
+}
+
+/* 🌙 Dark Mode */
+body.dark-mode {
+  background-color: #0e0f2e;
+  color: #f0f0f0;
+}
+
+/* ✨ New lighter blue gradient navbar for dark mode */
+body.dark-mode .navbar {
+  background: #0a0a23;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Adjust button and text for readability */
+body.dark-mode .language-selector {
+  background: #2b2fc4;
+}
+
+body.dark-mode .theme-btn {
+  background: #3539e2;
+}
+
+body.dark-mode .theme-btn:hover {
+  background: #4a4ff1;
+}
+
+body.dark-mode .btn {
+  border-color: #f0f0f0;
+  color: #f0f0f0;
+}
+
+body.dark-mode .btn:hover {
+  background: #f0f0f0;
+  color: #15165a;
+}
+
+/* Card appearance tweaks in dark mode */
+body.dark-mode .feature-card {
+  background-color: #1b1d3b;
+  color: #ddd;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+}
+
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a,
+.logout-btn {
   color: white;
   text-decoration: none;
-  margin-left: 20px;
-  font-weight: bold;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
 .nav-links a:hover {
   text-decoration: underline;
+}
+
+.btn {
+  border: 1px solid white;
+  padding: 5px 12px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: white;
+  color: #15165a;
+}
+
+/* Dark mode styling */
+body.dark-mode {
+  background-color: #0f0f1a;
+  color: #e2e2e2;
+}
+
+.btn.home {
+  border: 1px solid white;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn.home:hover {
+  background: white;
+  color: #15165a;
 }

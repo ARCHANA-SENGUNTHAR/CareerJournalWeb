@@ -1,18 +1,21 @@
-/* Home.css */
+/* ===== GENERAL STYLES ===== */
 .home {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #f9f9fb, #e0f7fa);
+  color: #2d3748;
+  overflow-x: hidden;
+}
+
+/* ===== HERO SECTION ===== */
+.hero-section {
   text-align: center;
-  padding: 40px 20px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #f9f9fb, #e0f7fa); /* subtle gradient background */
-  min-height: 100vh;
+  padding: 80px 20px 40px;
 }
 
 .home-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #2d3748;
-  margin-bottom: 10px;
-  background: linear-gradient(90deg, #6a11cb, #2575fc); /* gradient text */
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: fadeInUp 1s ease forwards;
@@ -21,56 +24,52 @@
 .home-subtitle {
   font-size: 1.2rem;
   color: #4a5568;
-  margin-bottom: 40px;
+  margin-top: 10px;
   animation: fadeInUp 1.2s ease forwards;
 }
 
-/* Features grid */
+/* ===== FEATURES SECTION ===== */
+.features-section {
+  padding: 60px 20px;
+  background-color: #ffffff;
+  border-radius: 25px 25px 0 0;
+}
+
 .features {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
-  max-width: 1000px;
+  gap: 25px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-/* Feature cards with gradient shadow */
 .feature-card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  width: 400px;
-  box-shadow: 0 4px 15px rgba(58, 123, 213, 0.2); /* gradient-like soft shadow */
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  text-align: left;
-  opacity: 0; /* start hidden */
-  transform: translateY(20px); /* start slightly down */
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 25px;
+  width: 260px;
+  box-shadow: 0 4px 15px rgba(58, 123, 213, 0.2);
+  transition: all 0.3s ease;
+  text-align: center;
   animation: fadeInUp 0.8s ease forwards;
 }
 
-.feature-card:nth-child(1) {
-  animation-delay: 1.4s;
-}
-.feature-card:nth-child(2) {
-  animation-delay: 1.6s;
-}
-.feature-card:nth-child(3) {
-  animation-delay: 1.8s;
-}
-.feature-card:nth-child(4) {
-  animation-delay: 2s;
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(58, 123, 213, 0.4);
 }
 
-.feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(58, 123, 213, 0.4); /* deeper gradient shadow on hover */
+.feature-icon {
+  font-size: 2.5rem;
+  color: #2575fc;
+  margin-bottom: 10px;
 }
 
 .feature-card h3 {
   font-size: 1.3rem;
-  margin-bottom: 8px;
   color: #2b6cb0;
+  margin-bottom: 8px;
 }
 
 .feature-card p {
@@ -78,7 +77,53 @@
   color: #4a5568;
 }
 
-/* Animations */
+/* ===== TICKER BANNER ===== */
+.ticker-section {
+  background-color: #15165a;
+  color: #ffffff;
+  padding: 15px 0;
+  margin-top: 60px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ticker-wrapper {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.ticker {
+  display: flex;
+  width: max-content;
+  animation: scrollTicker 30s linear infinite;
+}
+
+.ticker-content {
+  display: flex;
+}
+
+.ticker span {
+  display: inline-block;
+  margin-right: 80px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Smooth continuous scrolling animation */
+@keyframes scrollTicker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* ===== ANIMATIONS ===== */
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -88,4 +133,144 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+/* ===== EMPOWER SECTION ===== */
+.empower-section {
+  padding: 80px 40px;
+  background: linear-gradient(135deg, #e3f2fd, #f8f9fa);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+.empower-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 60px;
+  max-width: 1200px;
+}
+
+.empower-text {
+  flex: 1;
+  min-width: 320px;
+}
+
+.empower-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a237e;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #2575fc, #6a11cb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.empower-text p {
+  font-size: 1.05rem;
+  color: #374151;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.learn-btn {
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: linear-gradient(90deg, #2575fc, #6a11cb);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.learn-btn:hover {
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  transform: scale(1.05);
+}
+
+.empower-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empower-image img {
+  width: 400px;
+  max-width: 90%;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+/* 🌙 DARK MODE STYLES */
+body.dark-mode .home {
+ background: linear-gradient(135deg, #1b1c3d, #222446);
+  color: #f0f0f0;
+}
+
+/* Hero section in dark mode */
+body.dark-mode .hero-section {
+  background: transparent;
+}
+
+body.dark-mode .home-title {
+  background: linear-gradient(90deg, #7a7cff, #c3a3ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.dark-mode .home-subtitle {
+  color: #c7c7e1;
+}
+
+/* Features section in dark mode */
+body.dark-mode .features-section {
+  background: #0b0d4c;
+  color: #efdfdf;
+  border-radius: 25px 25px 0 0;
+}
+
+body.dark-mode .feature-card {
+  background: #1b1d3b;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+  color: #efe8e8;
+}
+
+/* Empower section dark mode */
+body.dark-mode .empower-section {
+  background: linear-gradient(135deg, #151738, #1b1d3b);
+}
+
+body.dark-mode .empower-text h2 {
+  background: linear-gradient(90deg, #8f8eff, #c3a3ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.dark-mode .empower-text p {
+  color: #e0e0e0;
+}
+
+body.dark-mode .learn-btn {
+  background: linear-gradient(90deg, #8f8eff, #c3a3ff);
+}
+
+body.dark-mode .learn-btn:hover {
+  background: linear-gradient(90deg, #c3a3ff, #8f8eff);
+}
+
+/* Dark ticker */
+body.dark-mode .ticker-section {
+  background-color: #0a0a23;
+  color: #ffffff;
 }
